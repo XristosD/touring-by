@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <div class="container-fluid zeroing-padding-margin bg-my-grey h-100 main-wrapper  d-flex flex-column">
+  <div class="container-fluid zeroing-padding-margin bg-my-grey hw-100 main-wrapper  d-flex flex-column">
     <div class="nav-wrapper bg-header-blue d-flex justify-content-center">
       <nav class="navbar navbar-expand-md navbar-light w-100 bg-header-blue nav-half-space" style="max-width: 1300px;">
         <a class="navbar-brand d-flex" href="#">
@@ -36,7 +36,7 @@
         </button>
         <div class="collapse navbar-collapse navbar-center" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link" href="#">Places</a>
+            <a class="nav-link" href="/admin/places">Places</a>
             <a class="nav-link" href="#">Points</a>
             <a class="nav-link" href="#">Tags</a>
           </div>
