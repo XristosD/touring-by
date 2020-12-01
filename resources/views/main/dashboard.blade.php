@@ -6,7 +6,7 @@
     <div class="col-sm">
         <div class="card text-center index-card">
             <div class="card-body">
-                <a href="#" class="index-a">
+                <a href="/admin/places" class="index-a">
                     <i class="fas fa-globe"></i>
                     <h5 class="card-tilte">Places</h5>
                     <h6 class="card-subtitle">#123</h6>
@@ -17,7 +17,7 @@
     <div class="col-sm">
         <div class="card text-center index-card">
             <div class="card-body">
-                <a href="#" class="index-a">
+                <a href="/admin/points" class="index-a">
                     <i class="fas fa-map-marker-alt"></i>
                     <h5 class="card-tilte">Points</h5>
                     <h6 class="card-subtitle">#123</h6>

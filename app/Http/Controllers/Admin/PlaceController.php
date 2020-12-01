@@ -77,6 +77,7 @@ class PlaceController extends Controller
     public function destroy(Place $place){
         Storage::delete($place->image);
         $place->delete();
-        return view('places.index');
+        $places = Place::all();
+        return view('places.index', ['places' => $places]);
     }
 }

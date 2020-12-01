@@ -11,8 +11,11 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="/js/myjs.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/ee36d99e68.js" crossorigin="anonymous"></script>
+
+  @yield('google-api')
 
   <title>touring-by</title>
 </head>
@@ -21,7 +24,7 @@
   <div class="container-fluid zeroing-padding-margin bg-my-grey hw-100 main-wrapper  d-flex flex-column">
     <div class="nav-wrapper bg-header-blue d-flex justify-content-center">
       <nav class="navbar navbar-expand-md navbar-light w-100 bg-header-blue nav-half-space" style="max-width: 1300px;">
-        <a class="navbar-brand d-flex" href="#">
+        <a class="navbar-brand d-flex" href="/admin/dashboard">
           <img src="https://plchldr.co/i/500x250" width="95" height="95" class="d-inline-block align-top nav-img" alt=""
             loading="lazy">
           <div class="d-inline-flex flex-column justify-content-center flex-grow-1 nav-title">
@@ -37,7 +40,7 @@
         <div class="collapse navbar-collapse navbar-center" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link" href="/admin/places">Places</a>
-            <a class="nav-link" href="#">Points</a>
+            <a class="nav-link" href="/admin/points">Points</a>
             <a class="nav-link" href="#">Tags</a>
           </div>
         </div>

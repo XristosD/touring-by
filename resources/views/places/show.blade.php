@@ -9,7 +9,8 @@
             <button class="btn my-btn btn-secondary dropdown-toggle mr-1 py-1" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
             <div class="dropdown-menu dropdown-menu-right m-0 p-0" aria-labelledby="dropdownMenuButton">
-                <a href="/admin/places/{{ $place->id }}/edit" class="btn my-btn dropdown-item m-1" role="button" aria-pressed="true">Edit</a>
+                <a href="/admin/places/{{ $place->id }}/edit" class="btn my-btn dropdown-item m-1" role="button"
+                    aria-pressed="true">Edit</a>
                 <form class="d-inline" action="/admin/places/{{ $place->id }}" method="POST">
                     @csrf
                     @method('DELETE')
@@ -19,7 +20,7 @@
         </div>
         <div id="not-so-responsive-btns">
             <a href="/admin/places/{{ $place->id }}/edit" class="btn my-btn" role="button" aria-pressed="true">Edit</a>
-        <form class="d-inline" action="/admin/places/{{ $place->id }}" method="POST">
+            <form class="d-inline" action="/admin/places/{{ $place->id }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn my-btn">Delete</button>
@@ -29,7 +30,7 @@
     <ul class="list-group">
         <li class="list-group-item">
             <h6>Name:</h6>
-        <span>{{ $place->name }}</span>
+            <span>{{ $place->name }}</span>
         </li>
         <li class="list-group-item">
             <h6>Description:</h6>

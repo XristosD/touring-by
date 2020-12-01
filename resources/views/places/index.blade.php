@@ -5,7 +5,7 @@
 <div class="btn-wrapper">
     <a href="/admin/places/create" class="btn btn-lg my-btn" role="button" aria-pressed="true">Add a new place</a>
 </div>
-<div class="places-wrapper">
+<div class="">
     @empty($places)
         <div>
             <span>No places added yet!</span>
