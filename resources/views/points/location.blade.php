@@ -10,7 +10,7 @@
 
 <div>
     <h3>
-        Change point's location:
+        Change location for  <a href="{{ $point->path() }}" class="model-name-a">{{ $point->name }}</a>:
     </h3>
 </div>
 <form action="/admin/points/{{ $point->id }}/location" method="POST">

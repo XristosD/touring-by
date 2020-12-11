@@ -63,11 +63,13 @@
             <button class="btn my-btn btn-secondary dropdown-toggle mr-1 py-1" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
             <div class="dropdown-menu dropdown-menu-right m-0 p-0" aria-labelledby="dropdownMenuButton">
-                <a href="/admin/points/{{ $point->id }}/location" class="btn my-btn btn my-btn dropdown-item m-1" role="button" aria-pressed="true">Change</a>
+                <a href="/admin/points/{{ $point->id }}/location" class="btn my-btn btn my-btn dropdown-item m-1"
+                    role="button" aria-pressed="true">Change</a>
             </div>
         </div>
         <div id="not-so-responsive-btns">
-            <a href="/admin/points/{{ $point->id }}/location" class="btn my-btn btn my-btn" role="button" aria-pressed="true">Change</a>
+            <a href="/admin/points/{{ $point->id }}/location" class="btn my-btn btn my-btn" role="button"
+                aria-pressed="true">Change</a>
         </div>
     </div>
     <div class="card-body h100">
@@ -78,81 +80,16 @@
 <div class="card mt-3">
     <div class="card-header d-flex justify-content-between">
         <h5 class="mb-0 align-self-center responsive-card-header-title">Point's Places</h5>
-        <a href="#" class="btn my-btn responsive-card-header-btn" role="button" aria-pressed="true">Add/Remove</a>
+        <a href="/admin/points/{{ $point->id }}/edit-places" class="btn my-btn responsive-card-header-btn" role="button"
+            aria-pressed="true">Add/Remove</a>
     </div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
+            @foreach($point->places as $place)
             <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
+                <a href="{{ $place->path() }}" class="model-name-a">{{ $place->name }}</a>
             </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<div class="card mt-3">
-    <div class="card-header d-flex justify-content-between">
-        <h5 class="mb-0 align-self-center responsive-card-header-title">Point's Tags</h5>
-        <a href="#" class="btn my-btn responsive-card-header-btn" role="button" aria-pressed="true">Add/Remove</a>
-    </div>
-    <div class="card-body">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#" class="model-name-a">Cras justo odio</a>
-            </li>
+            @endforeach
         </ul>
     </div>
 </div>

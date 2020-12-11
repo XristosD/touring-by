@@ -9,7 +9,7 @@
                 <a href="/admin/places" class="index-a">
                     <i class="fas fa-globe"></i>
                     <h5 class="card-tilte">Places</h5>
-                    <h6 class="card-subtitle">#123</h6>
+                    <h6 class="card-subtitle">#{{ App\Models\Place::count() }}</h6>
                 </a>
             </div>
         </div>
@@ -20,7 +20,7 @@
                 <a href="/admin/points" class="index-a">
                     <i class="fas fa-map-marker-alt"></i>
                     <h5 class="card-tilte">Points</h5>
-                    <h6 class="card-subtitle">#123</h6>
+                    <h6 class="card-subtitle">#{{ App\Models\Point::count()  }}</h6>
                 </a>
             </div>
         </div>
@@ -31,8 +31,8 @@
         <div class="card text-center index-card">
             <div class="card-body">
                 <a href="#" class="index-a">
-                    <i class="fas fa-tag"></i>
-                    <h5 class="card-tilte">Tags</h5>
+                    <i class="fas fa-route"></i>
+                    <h5 class="card-tilte">Tours</h5>
                     <h6 class="card-subtitle">#123</h6>
                 </a>
             </div>

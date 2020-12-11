@@ -10,7 +10,7 @@ defer></script>
 
 <div class="row">
   <div class="col">
-    <h4 class="ml-3">Change point's location</h4>
+    <h4 class="ml-3">Change location for  <a href="{{ $point->path() }}" class="model-name-a">{{ $point->name }}</a></h4>
   </div>
 </div>
 <div class="row">

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Point;
+use App\Models\Place;
 
 class PointController extends Controller
 {
@@ -20,7 +21,7 @@ class PointController extends Controller
      */
     public function index()
     {
-        $points = point::all();
+        $points = point::withCount('places')->get();
         return view('points.index', ['points' => $points]);
     }
 
@@ -86,6 +87,7 @@ class PointController extends Controller
      */
     public function edit(Point $point)
     {
+        $point->load('places');
         return view('points.edit', ['point' => $point]);
     }
 
@@ -115,7 +117,9 @@ class PointController extends Controller
             }
         }
         $point->save();
-        return view('points.show', ['point' => $point]);
+        return redirect()->action(
+            [PointController::class, 'show'], ['point' => $point]
+        );
     }
 
     /**
@@ -128,8 +132,9 @@ class PointController extends Controller
     {
         Storage::delete($point->image);
         $point->delete();
-        $points = point::all();
-        return view('points.index', ['points' => $points]);
+        return redirect()->action([
+            PointController::class, 'index',
+        ]);
     }
 
     public function changeLocation(Point $point){
@@ -147,4 +152,32 @@ class PointController extends Controller
 
         return redirect('/admin/points/'.$point->id);
     }
+
+    public function editPlaces(Point $point){
+        $belongingPlaces = $point->places;
+        $notBelongingPlaces = \App\Models\Place::all()->diff($belongingPlaces);
+        //dd($belongingPoints, $notBelongingPoints);
+        return view('points.edit-places', [
+            'point' => $point,
+            'belongingPlaces' => $belongingPlaces,
+            'notBelongingPlaces' => $notBelongingPlaces,
+        ]);
+    }
+
+    public function addPlaces(Point $point, Request $request){
+        $placesToAdd = Place::find($request->addedPlaces);
+        if($placesToAdd){
+            $point->places()->saveMany($placesToAdd);
+        }
+        return redirect()->back();
+    }
+
+    public function removePlaces(Point $point, Request $request){
+        $placesToRemove = Place::find($request->removedPlaces);
+        if($placesToRemove){
+            $point->places()->detach($placesToRemove);
+        }
+        return redirect()->back();
+    }
+
 }

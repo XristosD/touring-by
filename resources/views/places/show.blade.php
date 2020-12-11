@@ -61,41 +61,16 @@
             </div>
         </div>
         <div id="not-so-responsive-btns">
-            <a href="#" class="btn my-btn" role="button" aria-pressed="true">Add/Remove</a>
+        <a href="/admin/places/{{ $place->id }}/edit-points" class="btn my-btn" role="button" aria-pressed="true">Add/Remove</a>
         </div>
     </div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
+            @foreach( $place->points as $point)
             <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
+            <a href="{{ $point->path() }}" class="model-name-a">{{ $point->name }}</a>
             </li>
-            <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
-            </li>
-            <li class="list-group-item">
-                <a href="#">Cras justo odio</a>
-            </li>
+            @endforeach
         </ul>
     </div>
 

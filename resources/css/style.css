@@ -114,20 +114,6 @@ html, body {
 
 /* end button */
 
-/* model name link style  */
-
-.model-name-a {
-    color: #212529;
-    text-decoration: none;
-}
-
-.model-name-a:hover {
-    color: #212529;
-    text-decoration: none;
-}
-
-/* end model name link */
-
 /* index model */
 
 .model-name {
@@ -136,12 +122,12 @@ html, body {
 }
 
 .model-name-a {
-    color: #212529;
+    color: #696969;
     text-decoration: none;
 }
 
 .model-name-a:hover {
-    color: #212529;
+    color: #408E90;
     text-decoration: none;
 }
 

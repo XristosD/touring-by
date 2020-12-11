@@ -29,7 +29,7 @@
                             </a>
                         </div>
                         <div class="col-md model-info">
-                            <h6>#points: 37</h6>
+                        <h6>#points: {{$place->points_count}}</h6>
                         </div>
                     </div>
                 </div>

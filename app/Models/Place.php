@@ -23,4 +23,8 @@ class Place extends Model
     public function public_image_path(){
         return Storage::url($this->image);
     }
+
+    public function points(){
+        return $this->belongsToMany('App\Models\Point');
+    }
 }
