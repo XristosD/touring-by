@@ -2,7 +2,7 @@
 
 @section('google-api')
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcmrS_jBbgfHGUuUJrsCg81ZdNwIWFtQg&callback=initMap&libraries=&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key=GOOGLEAPIKEY&callback=initMap&libraries=&v=weekly"
     defer></script>
 @endsection
 @section('content')
