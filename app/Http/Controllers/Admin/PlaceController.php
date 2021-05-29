@@ -29,14 +29,16 @@ class PlaceController extends Controller
             $validatedData = $request->validate([
                 'name' => 'required|unique:places|max:255',
                 'description' => 'required',
-                'image' => 'required|image|dimensions:min_width=300,min_height=400',
+                'image' => 'required|image|dimensions:min_width=400,min_height=300',
             ]);
             $place = new Place();
 
             $place->name = $request->input('name');
             $place->info = $request->input('info');
             $place->description = $request->input('description');
-            $place->image = $request->file('image')->store('public/images');
+            $path = $request->file('image')->store('images', 's3');
+            $place->image = Storage::disk('s3')->url($path);
+            Storage::disk('s3')->setVisibility($path, 'public');
             $place->save();
 
             return redirect('/admin/places/'.$place->id);

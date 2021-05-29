@@ -21,10 +21,15 @@ class Place extends Model
     }
 
     public function public_image_path(){
-        return Storage::url($this->image);
+        return Storage::disk('s3')->url($this->image);
+        // return $this->image;
     }
 
     public function points(){
-        return $this->belongsToMany('App\Models\Point');
+        return $this->belongsToMany(Point::class);
+    }
+
+    public function tours(){
+        return $this->hasMany(Tour::class);
     }
 }

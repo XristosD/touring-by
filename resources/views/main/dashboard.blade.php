@@ -30,10 +30,10 @@
     <div class="col-sm">
         <div class="card text-center index-card">
             <div class="card-body">
-                <a href="#" class="index-a">
+                <a href="/admin/tours" class="index-a">
                     <i class="fas fa-route"></i>
                     <h5 class="card-tilte">Tours</h5>
-                    <h6 class="card-subtitle">#123</h6>
+                    <h6 class="card-subtitle">#{{ App\Models\Tour::count()  }}</h6>
                 </a>
             </div>
         </div>

@@ -2,7 +2,7 @@
 
 @section('google-api')
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcmrS_jBbgfHGUuUJrsCg81ZdNwIWFtQg&callback=initAutocomplete&libraries=places&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key={{config('maps.key')}}&callback=initAutocomplete&libraries=places&v=weekly"
     defer></script>
 @endsection
 

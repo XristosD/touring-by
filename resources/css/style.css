@@ -258,3 +258,57 @@ html, body {
 
 /* end map */
 
+/* edit route */
+
+.points-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 5px;
+    
+}
+
+.point-item{
+    display: flex;
+    padding: 5px 7px 5px 7px;
+    margin: 5px 0 5px 0;
+    border: 1px solid  #A8D5CC;
+    border-radius: 7px;
+}
+
+.point-item:hover{
+    background-color: #A8D5CC;
+}
+
+.point-name{
+    flex-grow: 1;
+}
+
+.ico{
+    cursor: pointer;
+    color: #408E90;
+}
+
+.ico:hover{
+    color: #25686b;
+}
+
+.offset{
+    position: relative;
+    left: 5px;
+    bottom: 25px;
+    border: none;
+    background-color: transparent;
+}
+
+.offset:focus{
+    outline:none;
+}
+
+.delete-point{
+    display: none;
+    justify-content: flex-end;
+}
+
+/* end edit route */
+

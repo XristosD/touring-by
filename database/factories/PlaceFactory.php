@@ -5,6 +5,11 @@ namespace Database\Factories;
 use App\Models\Place;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+use Faker\Factory as FakerFactory;
+use Faker\Generator as FakerGenerator;
+use Salopot\ImageGenerator\ImageSources\Local;
+use Salopot\ImageGenerator\ImageSources\Remote;
+
 class PlaceFactory extends Factory
 {
     /**
@@ -25,7 +30,7 @@ class PlaceFactory extends Factory
             'name' => $this->faker->streetName ,
             'info' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(4),
-            'image' => 'public/images/5QLBIY4FJetDj6kFQhIj20Sl9lSgjrgC4mo6a5B9.jpeg',
+            'image' => 'https://picsum.photos/400/300?random='.random_int(0,2000),
         ];
     }
 }

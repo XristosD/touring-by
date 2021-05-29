@@ -2,7 +2,7 @@
 
 @section('google-api')
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcmrS_jBbgfHGUuUJrsCg81ZdNwIWFtQg&callback=initMap&libraries=&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key={{config('maps.key')}}&callback=initMap&libraries=&v=weekly"
     defer></script>
 @endsection
 @section('content')
@@ -18,7 +18,7 @@
                 <form class="d-inline" action="/admin/points/{{ $point->id }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn my-btn dropdown-item m-1">Delete</button>
+                    <button type="submit" disabled class="btn my-btn dropdown-item m-1">Delete</button>
                 </form>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <form class="d-inline" action="/admin/points/{{ $point->id }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn my-btn">Delete</button>
+                <button type="submit" disabled class="btn my-btn">Delete</button>
             </form>
         </div>
     </div>
@@ -49,7 +49,7 @@
             </span>
         </li>
         <li class="list-group-item d-flex justify-content-center">
-            <img src="{{ $point->public_image_path() }}" width="auto" class="img-fluid" alt="" loading="lazy">
+            <img src="{{ $point->image }}" width="auto" class="img-fluid" alt="" loading="lazy">
         </li>
     </ul>
 </div>
@@ -90,6 +90,23 @@
                 <a href="{{ $place->path() }}" class="model-name-a">{{ $place->name }}</a>
             </li>
             @endforeach
+        </ul>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header d-flex justify-content-between">
+        <h5 class="mb-0 align-self-center responsive-card-header-title">Point's Tours</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            @forelse($point->tours as $tour)
+            <li class="list-group-item">
+                <a href="{{ $tour->path() }}" class="model-name-a">{{ $tour->name }}</a>
+            </li>
+            @empty
+            No associated tours yet.
+            @endforelse
         </ul>
     </div>
 </div>

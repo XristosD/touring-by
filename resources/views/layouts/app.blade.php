@@ -41,7 +41,7 @@
           <div class="navbar-nav">
             <a class="nav-link" href="/admin/places">Places</a>
             <a class="nav-link" href="/admin/points">Points</a>
-            <a class="nav-link" href="#">Tours</a>
+            <a class="nav-link" href="/admin/tours">Tours</a>
           </div>
         </div>
         @endauth

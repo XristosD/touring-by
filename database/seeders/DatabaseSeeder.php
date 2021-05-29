@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\Place;
+use App\Models\Point;
+use App\Models\Tour;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +28,40 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        Place::factory()->times(3)->create();
+        
+
+
+        Place::factory()->times(20)->create();
+
+        Point::factory()->times(60)->create();
+
+        $points = Point::all();
+
+        foreach (Place::all() as $place){
+            $ids = $points->pluck('id')->random(20)->toArray();
+            $place->points()->attach($ids);
+        }
+
+        Tour::factory()->times(80)->create();
+
+        foreach(Tour::all() as $tour){
+            $route = 1;
+            $points = $tour->place->points->random(10);
+
+            foreach($points as $point){
+                $tour->points()->attach( $point->id, [ 'route'=> $route++ ] );
+            }
+
+            // $tour->attach(
+            //     $points->mapWithKeys(function ($point) use($route) { 
+            //         return [$point->id => ['route'=> $route++]];
+            //     })
+            // );
+
+        }
+
+        // $points = Point::select('id')->get();
+        // $place = Place::first();
+        // $place->points()->attach($points);
     }
 }

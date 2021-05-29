@@ -138,3 +138,138 @@ function latLongExists(){
     return null;
   }
 }
+
+let locations = [];
+
+function initTourMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: { lat: -28.024, lng: 140.887 },
+  });
+
+  const tourId = document.getElementById('tour-id').value;
+
+  let url = "/admin/tours/"+ tourId +"/route";
+
+  fetch(url)
+  .then((resp) => resp.json())
+  .then(function(dlocations){
+    locations = dlocations;
+
+    let displayButton = false;
+
+    const bounds = new google.maps.LatLngBounds();
+
+    for (const location of locations) {
+      const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        });
+        location.marker = marker;
+        if (location.route != 0 ){
+          displayButton =true;
+          marker.setLabel( location.route.toString())
+          appendPoint(location);
+        }
+        marker.addListener('click', function(e) {
+          if(location.route == 0){
+            const routeNum = Math.max.apply(Math, locations.map(function(location){ return location.route; })) + 1;
+            location.route = routeNum;
+            marker.setLabel((routeNum ).toString());
+            appendPoint(location);
+          }
+        });
+        const infowindow = info(location);
+        marker.addListener("mouseover", function() {
+          infowindow.open(map, marker);
+        });
+        marker.addListener("mouseout", function() {
+          infowindow.close();
+        });
+      bounds.extend(marker.position);
+    }
+    if(displayButton){
+      const removeButton = document.getElementById('removeLast');
+      removeButton.style.display = "flex";
+    }
+  
+    map.fitBounds(bounds);
+  });
+}
+
+function removeLastPoint() {
+  const select = document.getElementById('pointsWrapper');
+  select.removeChild(select.lastElementChild);
+  let lastLocation = locations.reduce((max, loc) => max.route > loc.route ? max : loc);
+  const removeButton = document.getElementById('removeLast');
+  if (lastLocation.route == 1) {
+    removeButton.style.display = "none";
+  }
+  lastLocation.route = 0;
+  lastLocation.marker.setLabel('');
+}
+
+function appendPoint(location){
+  const removeButton = document.getElementById('removeLast');
+  removeButton.style.display = "flex";
+  const select = document.getElementById('pointsWrapper');
+  const pointWrapper = document.createElement('div');
+  pointWrapper.innerHTML ='<div class="point-wrapper">\
+                            <div class="point-item">\
+                                <span class="point-name">'+location.name+'</span>\
+                                <input type="hidden" value="'+location.id+'" name="route['+location.route+']">\
+                            </div>\
+                          </div>';
+  select.appendChild(pointWrapper);
+}
+
+function info( location ) {
+  return  new google.maps.InfoWindow({
+    content: "<span>"+location.name+"</span>",
+  });
+}
+
+// const dummyLocations = [
+//   { "lat": -31.56391, "lng": 147.154312, "name": "point name", "route": 1 },
+//   { "lat": -33.718234, "lng": 150.363181, "id": 2, "name": "point name", "route": 2 },
+// ];
+
+function initTourPointsMap(){
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: { lat: -28.024, lng: 140.887 },
+  });
+  const tourId = document.getElementById('tour-id').value;
+
+  let url = "/admin/tours/"+ tourId +"/show-route";
+
+  fetch(url)
+  .then((resp) => resp.json())
+  .then(function(dlocations){
+    locations = dlocations;
+    console.log(locations);
+    const bounds = new google.maps.LatLngBounds();
+
+    for (const location of locations) {
+      const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        });
+        if (location.route != 0 ){
+          marker.setLabel( location.route.toString())
+        }
+        const infowindow = info(location);
+        marker.addListener("mouseover", function() {
+          infowindow.open(map, marker);
+        });
+        marker.addListener("mouseout", function() {
+          infowindow.close();
+        });
+      bounds.extend(marker.position);
+    }
+  
+    map.fitBounds(bounds);
+  });
+
+}
+

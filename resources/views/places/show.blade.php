@@ -14,7 +14,7 @@
                 <form class="d-inline" action="/admin/places/{{ $place->id }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn my-btn dropdown-item m-1">Delete</button>
+                    <button type="submit" disabled class="btn my-btn dropdown-item m-1">Delete</button>
                 </form>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <form class="d-inline" action="/admin/places/{{ $place->id }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn my-btn">Delete</button>
+                <button type="submit" disabled class="btn my-btn">Delete</button>
             </form>
         </div>
     </div>
@@ -45,7 +45,7 @@
             </span>
         </li>
         <li class="list-group-item d-flex justify-content-center">
-            <img src="{{ $place->public_image_path() }}" width="auto" class="img-fluid" alt="" loading="lazy">
+            <img src="{{ $place->image }}" width="auto" class="img-fluid" alt="" loading="lazy">
         </li>
     </ul>
 </div>
@@ -61,16 +61,19 @@
             </div>
         </div>
         <div id="not-so-responsive-btns">
-        <a href="/admin/places/{{ $place->id }}/edit-points" class="btn my-btn" role="button" aria-pressed="true">Add/Remove</a>
+            <a href="/admin/places/{{ $place->id }}/edit-points" class="btn my-btn" role="button"
+                aria-pressed="true">Add/Remove</a>
         </div>
     </div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
-            @foreach( $place->points as $point)
+            @forelse( $place->points as $point)
             <li class="list-group-item">
-            <a href="{{ $point->path() }}" class="model-name-a">{{ $point->name }}</a>
+                <a href="{{ $point->path() }}" class="model-name-a">{{ $point->name }}</a>
             </li>
-            @endforeach
+            @empty
+            No associated points yet.
+            @endforelse
         </ul>
     </div>
 

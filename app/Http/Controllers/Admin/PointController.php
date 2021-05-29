@@ -48,7 +48,7 @@ class PointController extends Controller
             $validatedData = $request->validate([
                 'name' => 'required|unique:points|max:255',
                 'description' => 'required',
-                'image' => 'required|image|dimensions:min_width=300,min_height=400',
+                'image' => 'required|image|dimensions:min_width=400,min_height=300',
                 'latitude' => 'required|numeric',
                 'longitude' => 'required|numeric',
             ]);
@@ -59,7 +59,9 @@ class PointController extends Controller
             $point->description = $request->input('description');
             $point->latitude = $request->input('latitude');
             $point->longitude = $request->input('longitude');
-            $point->image = $request->file('image')->store('public/images');
+            $path= $request->file('image')->store('images', 's3');
+            $point->image = Storage::disk('s3')->url($path);
+            Storage::disk('s3')->setVisibility($path, 'public');
             $point->save();
 
             return redirect('/admin/points/'.$point->id);

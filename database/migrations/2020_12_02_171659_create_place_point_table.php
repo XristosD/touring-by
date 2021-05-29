@@ -15,8 +15,8 @@ class CreatePlacePointTable extends Migration
     {
         Schema::create('place_point', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('place_id')->constrained();
-            $table->foreignId('point_id')->constrained();
+            $table->foreignId('place_id')->constrained()->onDelete('cascade');
+            $table->foreignId('point_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
