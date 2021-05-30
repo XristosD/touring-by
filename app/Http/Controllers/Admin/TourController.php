@@ -56,9 +56,8 @@ class TourController extends Controller
     public function showRoute(Tour $tour, Request $request){
         $routes = $tour->points()->select('latitude as lat', 'longitude as lng', 'name', 'point_tour.route')
         ->get()
-        ->makeHidden('pivot')
-        ->toJson();
-        return $routes;
+        ->makeHidden('pivot');
+        return response()->json($routes);
     }
 
     public function editRoute(Tour $tour){
@@ -75,9 +74,8 @@ class TourController extends Controller
         ->makeHidden('pivot')
         ->each(function ($item, $key){
             return $item->route = $item->route ?: 0;
-        })
-        ->toJson();
-        return $routes;
+        });
+        return response()->json($routes);
     }
 
     public function storeRoute(Tour $tour, Request $request){
