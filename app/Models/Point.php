@@ -18,6 +18,11 @@ class Point extends Model
         'longitude',
     ];
 
+    protected $casts = [
+        'latitude' => 'double',
+        'longitude' => 'double',
+    ];
+
     public function path(){
         return '/admin/points/' . $this->id;
     }
