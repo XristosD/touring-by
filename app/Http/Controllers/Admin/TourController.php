@@ -79,6 +79,10 @@ class TourController extends Controller
         ->each(function ($item, $key){
             return $item->route = $item->route ?: 0;
         });
+        foreach($routes as $route){
+            $route->lat = floatval($route->lat);
+            $route->lng = floatval($route->lmg);
+        }
         return response()->json($routes);
     }
 
