@@ -18,23 +18,23 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(FakerGenerator::class, function ($app) {
-            $generator =  FakerFactory::create($app['config']->get('app.faker_locale', 'en_US'));
+        // $this->app->singleton(FakerGenerator::class, function ($app) {
+        //     $generator =  FakerFactory::create($app['config']->get('app.faker_locale', 'en_US'));
             
-            // Additional faker providers
-            $imageProvider = new \Salopot\ImageGenerator\ImageProvider($generator);
-            $imageProvider->addImageSource(new Local\SolidColorSource($imageProvider));
-            $imageProvider->addImageSource(new Local\GallerySource($imageProvider, '/dir/with/images'));
-            $imageProvider->addImageSource(new Local\SolidColorSource($imageProvider));
-            $imageProvider->addImageSource(new Remote\LoremPixelSource($imageProvider));
-            $imageProvider->addImageSource(new Remote\PicsumPhotosSource($imageProvider));
-            // $imageProvider->addImageSource(new cRemote\UnsplashSource($imageProvider));
-            $imageProvider->addImageSource(new Remote\PlaceKittenSource($imageProvider));
-            $imageProvider->addImageSource(new Remote\PlaceImgSource($imageProvider));
-            $generator->addProvider($imageProvider);
+        //     // Additional faker providers
+        //     $imageProvider = new \Salopot\ImageGenerator\ImageProvider($generator);
+        //     $imageProvider->addImageSource(new Local\SolidColorSource($imageProvider));
+        //     $imageProvider->addImageSource(new Local\GallerySource($imageProvider, '/dir/with/images'));
+        //     $imageProvider->addImageSource(new Local\SolidColorSource($imageProvider));
+        //     $imageProvider->addImageSource(new Remote\LoremPixelSource($imageProvider));
+        //     $imageProvider->addImageSource(new Remote\PicsumPhotosSource($imageProvider));
+        //     // $imageProvider->addImageSource(new cRemote\UnsplashSource($imageProvider));
+        //     $imageProvider->addImageSource(new Remote\PlaceKittenSource($imageProvider));
+        //     $imageProvider->addImageSource(new Remote\PlaceImgSource($imageProvider));
+        //     $generator->addProvider($imageProvider);
         
-           return $generator;
-        });
+        //    return $generator;
+        // });
     }
 
     /**
