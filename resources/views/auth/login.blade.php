@@ -4,7 +4,7 @@
 
 <div class="d-flex justify-content-center">
 
-    <form method="POST" action="/admin/" class="d-flex flex-column align-items-center">
+    <form method="POST" action="/admin" class="d-flex flex-column align-items-center">
         @csrf
         <h5 class="pb-3">Welcome</h5>
         <div class="pb-2">
