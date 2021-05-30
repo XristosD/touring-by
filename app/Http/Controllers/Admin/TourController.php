@@ -54,7 +54,7 @@ class TourController extends Controller
     }
 
     public function showRoute(Tour $tour, Request $request){
-        $routes = $tour->points()->select('latitude', 'longitude', 'name', 'point_tour.route')
+        $routes = $tour->points()->select('latitude AS lat', 'longitude AS lng', 'name', 'point_tour.route')
         ->get()
         ->makeHidden('pivot');
         foreach($routes as $route){
