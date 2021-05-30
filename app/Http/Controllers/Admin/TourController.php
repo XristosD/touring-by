@@ -59,7 +59,7 @@ class TourController extends Controller
         ->makeHidden('pivot');
         foreach($routes as $route){
             $route->lat = floatval($route->lat);
-            $route->lng = floatval($route->lmg);
+            $route->lng = floatval($route->lng);
         }
         return response()->json($routes);
     }
@@ -81,7 +81,7 @@ class TourController extends Controller
         });
         foreach($routes as $route){
             $route->lat = floatval($route->lat);
-            $route->lng = floatval($route->lmg);
+            $route->lng = floatval($route->lng);
         }
         return response()->json($routes);
     }
