@@ -5,10 +5,10 @@ namespace Database\Factories;
 use App\Models\Place;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-use Faker\Factory as FakerFactory;
-use Faker\Generator as FakerGenerator;
-use Salopot\ImageGenerator\ImageSources\Local;
-use Salopot\ImageGenerator\ImageSources\Remote;
+// use Faker\Factory as FakerFactory;
+// use Faker\Generator as FakerGenerator;
+// use Salopot\ImageGenerator\ImageSources\Local;
+// use Salopot\ImageGenerator\ImageSources\Remote;
 
 class PlaceFactory extends Factory
 {

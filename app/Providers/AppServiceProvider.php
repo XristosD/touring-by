@@ -4,10 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-use Faker\Factory as FakerFactory;
-use Faker\Generator as FakerGenerator;
-use Salopot\ImageGenerator\ImageSources\Local;
-use Salopot\ImageGenerator\ImageSources\Remote;
+// use Faker\Factory as FakerFactory;
+// use Faker\Generator as FakerGenerator;
+// use Salopot\ImageGenerator\ImageSources\Local;
+// use Salopot\ImageGenerator\ImageSources\Remote;
 
 class AppServiceProvider extends ServiceProvider
 {
