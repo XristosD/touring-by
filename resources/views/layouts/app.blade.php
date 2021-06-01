@@ -25,7 +25,7 @@
     <div class="nav-wrapper bg-header-blue d-flex justify-content-center">
       <nav class="navbar navbar-expand-md navbar-light w-100 bg-header-blue nav-half-space" style="max-width: 1300px;">
         <a class="navbar-brand d-flex" href="/admin/dashboard">
-          <img src="https://plchldr.co/i/500x250" width="95" height="95" class="d-inline-block align-top nav-img" alt=""
+          <img src="{{ Storage::disk('s3')->url('images/touring_by.png') }}" width="85" height="115" class="d-inline-block align-top nav-img" alt=""
             loading="lazy">
           <div class="d-inline-flex flex-column justify-content-center flex-grow-1 nav-title">
             <span class="title">Touring-by</span>
