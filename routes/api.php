@@ -51,8 +51,11 @@ Route::name('api.')->group( function(){
             Route::get('/touringbypoint/{touringByPoint}/like', [TouringByPointController::class, 'like']);
             Route::get('/touringbypoint/{touringByPoint}/unlike', [TouringByPointController::class, 'unLike']);
             Route::post('/touringbypoint/{touringByPoint}/uploadimage', [TouringByPointController::class, 'uploadImage']);
+            
+        });
+        Route::middleware('can:getImage,touringByPoint')->group(function() {
             Route::get('/touringbypoint/{touringByPoint}/image', [TouringByPointController::class, 'image']);
-        });     
+        });    
     });
 });
 
