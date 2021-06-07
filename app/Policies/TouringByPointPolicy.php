@@ -25,4 +25,11 @@ class TouringByPointPolicy
     {
         return $touringByPoint->touringBy->user->is($user);
     }
+
+    public function getImage(User $user, TouringByPoint $touringByPoint){
+        return $touringByPoint->touringBy->user->is($user) || DB::table('shared_touring_bies')
+                                                                ->where('user_id','=',$user->id)
+                                                                ->where('touring_by_id','=',$touringByPoint->touringBy->id)
+                                                                ->exists();
+    }
 }
