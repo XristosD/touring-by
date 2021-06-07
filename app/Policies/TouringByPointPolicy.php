@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\TouringBy;
 use App\Models\TouringByPoint;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\DB;
 
 class TouringByPointPolicy
 {
