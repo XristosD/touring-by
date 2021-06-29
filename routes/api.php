@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\TouringByController;
 use App\Http\Controllers\Api\TouringByPointController;
 use App\Http\Controllers\Api\SharedTouringByController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\TourRatingController;
 
 
 /*
@@ -37,6 +38,7 @@ Route::name('api.')->group( function(){
         Route::get('/finduserbyemail', [UserController::class, 'findUserByEmail']);
         Route::get('/touringby/index', [TouringByController::class, 'index']);
         Route::get('/sharedtouringby/index', [SharedTouringByController::class, 'indexShared']);
+        Route::get('/tourRating/set/{touringBy}', [TourRatingController::class, 'rate']);
         Route::middleware('can:update,touringBy')->group( function() {
             Route::get('/touringby/{touringBy}/resume', [TouringByController::class, 'get']);
             Route::get('/touringby/{touringBy}/currentpoint', [TouringByController::class, 'currentTuringByPoint']);

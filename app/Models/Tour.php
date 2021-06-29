@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class Tour extends Model
 {
@@ -51,6 +53,18 @@ class Tour extends Model
             return data_get($value, "route");
         });
         return $routesOrderedArray->toArray();
+    }
+
+    public function rating() {
+        $rating = DB::table('tour_ratings')
+            ->where('tour_id', $this->id)
+            ->avg('rating');
+        
+            $strRounded = Str::substr(strval($rating), 0, 3);
+            if($strRounded === ""){
+                return '0.0';
+            }
+            return $strRounded;
     }
 
 }

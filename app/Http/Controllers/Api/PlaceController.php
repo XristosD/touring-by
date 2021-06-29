@@ -18,6 +18,9 @@ class PlaceController extends Controller
 
     public function indexTour(Place $place){
         $tours = $place->tours()->select('id','name','description')->where('has_points', true)->withCount('points')->get();
+        foreach($tours as $tour) {
+            $tour->rating = $tour->rating();
+        }
         return [
             'tours' => $tours,
             'length' => $tours->count(),

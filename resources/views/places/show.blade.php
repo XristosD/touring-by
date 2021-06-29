@@ -57,7 +57,7 @@
             <button class="btn my-btn btn-secondary dropdown-toggle mr-1 py-1" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
             <div class="dropdown-menu dropdown-menu-right m-0 p-0" aria-labelledby="dropdownMenuButton">
-                <a href="#" class="btn my-btn dropdown-item m-1" role="button" aria-pressed="true">Add/Remove</a>
+                <a href="/admin/places/{{ $place->id }}/edit-points" class="btn my-btn dropdown-item m-1" role="button" aria-pressed="true">Add/Remove</a>
             </div>
         </div>
         <div id="not-so-responsive-btns">
