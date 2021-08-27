@@ -9,5 +9,5 @@ This repo also includes the API which respondes to end-users requests.
 1. Laravel
 2. Bootstrap 4
 3. Google Maps JS Api (needs a key to work properly)
-#### Deployed on
+#### Deployed on:
 <a href="http://touring-by.herokuapp.com/admin">Heroku</a>
